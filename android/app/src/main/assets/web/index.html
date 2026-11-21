@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#10091f" />
+    <link rel="manifest" href="./manifest.webmanifest" />
+    <link rel="stylesheet" href="./styles.css" />
+    <title>ClipForge</title>
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="topbar">
+        <div><p class="eyebrow">CREATOR STUDIO</p><h1>ClipForge</h1></div>
+        <button class="avatar" type="button" aria-label="Профиль">Д</button>
+      </header>
+
+      <section id="home-screen" class="screen active" aria-labelledby="home-title">
+        <div class="hero"><span class="live-dot"></span><p>Готово к нарезке</p><h2 id="home-title">Преврати стрим<br />в клипы</h2><p class="muted">Лицо сверху, геймплей снизу — уже в формате для Shorts, Reels и TikTok.</p></div>
+        <div class="source-grid">
+          <button id="twitch-source" class="source-card twitch" type="button"><span class="source-icon">◉</span><strong>Twitch</strong><small>Вставить VOD</small></button>
+          <label class="source-card upload"><input id="video-input" type="file" accept="video/*" /><span class="source-icon">↑</span><strong>Видео</strong><small>Загрузить файл</small></label>
+        </div>
+        <section class="section"><div class="section-heading"><h3>Последние проекты</h3><button class="text-button" type="button">Все</button></div>
+          <article class="project-card"><div class="thumbnail gradient-a"><span>▶</span></div><div><p class="project-title">Лучшие моменты стрима</p><p class="project-meta">Сегодня · 3 клипа</p></div><button class="more" type="button">•••</button></article>
+        </section>
+      </section>
+
+      <section id="source-screen" class="screen" aria-labelledby="source-title">
+        <button class="back" data-back type="button">‹ Назад</button>
+        <p class="eyebrow">НОВЫЙ ПРОЕКТ</p><h2 id="source-title">Что будем нарезать?</h2>
+        <label class="field-label" for="twitch-url">Ссылка на Twitch VOD или канал</label>
+        <input id="twitch-url" type="url" placeholder="https://twitch.tv/videos/..." inputmode="url" />
+        <p class="hint">Используйте только свои трансляции или видео с разрешением автора.</p>
+        <button id="analyze-twitch" class="primary" type="button">Найти моменты</button>
+      </section>
+
+      <section id="processing-screen" class="screen processing" aria-live="polite">
+        <div class="orbit"><div class="orbit-core">✦</div></div><p class="eyebrow">AI ОБРАБОТКА</p><h2>Ищем лучшие моменты</h2><p id="processing-status" class="muted">Анализируем речь и эмоции…</p><div class="progress"><span id="progress-bar"></span></div><p id="progress-label" class="progress-label">0%</p>
+      </section>
+
+      <section id="results-screen" class="screen" aria-labelledby="results-title">
+        <button class="back" data-back type="button">‹ Главная</button>
+        <p class="eyebrow">ПРОЕКТ ГОТОВ</p><h2 id="results-title">Нашли 3 момента</h2><p class="muted">Лицо обнаружено: автокадрирование включено.</p>
+        <div id="clips-list" class="clips-list"></div>
+      </section>
+
+      <section id="editor-screen" class="screen" aria-labelledby="editor-title">
+        <button class="back" data-results type="button">‹ К клипам</button>
+        <p class="eyebrow">РЕДАКТОР</p><h2 id="editor-title">Невероятная реакция</h2>
+        <div class="preview-frame" role="img" aria-label="Пример вертикального клипа: лицо стримера сверху, геймплей снизу"><div class="face-zone"><span>ЛИЦО · 40%</span><div class="face-placeholder">◉</div></div><div class="game-zone"><span>ГЕЙМПЛЕЙ · 60%</span><div>✦</div><p>ЭТО БЫЛО БЛИЗКО!</p></div></div>
+        <div class="timeline"><span>00:12</span><div><i></i></div><span>00:43</span></div>
+        <div class="setting"><div><strong>Лицо сверху</strong><small>40% кадра · автоотслеживание</small></div><button id="face-toggle" class="toggle on" type="button" aria-pressed="true"><i></i></button></div>
+        <div class="setting"><div><strong>Автосубтитры</strong><small>Русский · крупный стиль</small></div><button class="toggle on" type="button" aria-pressed="true"><i></i></button></div>
+        <button id="export-button" class="primary" type="button">Экспортировать MP4</button>
+      </section>
+
+      <nav class="bottom-nav" aria-label="Навигация"><button class="nav-item selected" type="button" data-nav="home-screen">⌂<span>Главная</span></button><button class="nav-item" type="button">▣<span>Проекты</span></button><button class="nav-item" type="button">◯<span>Профиль</span></button></nav>
+    </main>
+    <div id="toast" role="status"></div>
+    <script src="./app.js"></script>
+  </body>
+</html>
