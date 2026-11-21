@@ -7,3 +7,7 @@
 Откройте `app/index.html` в браузере или раздайте папку `app` любым статическим HTTP-сервером. На телефоне в браузере выберите «Добавить на главный экран» — приложение откроется как отдельное.
 
 Интеграционный контракт и серверный конвейер описаны в `app/server/README.md`. Для Android откройте проект в `android`; инструкции находятся в `android/README.md`.
+
+## GitHub Actions
+
+Workflow `.github/workflows/android-apk.yml` собирает debug APK после каждого push в `main`, в pull request и вручную через вкладку **Actions**. По окончании запуска скачайте артефакт `clipforge-debug-apk`.

@@ -10,6 +10,10 @@
 
 APK появится в `app/build/outputs/apk/debug/app-debug.apk`.
 
+## GitHub Actions
+
+После публикации репозитория GitHub Actions соберёт APK автоматически. Откройте запуск **Build Android APK** в разделе Actions и скачайте `clipforge-debug-apk` из блока Artifacts.
+
 ## Что уже работает
 
 - экран выбора Twitch URL или собственного видео;
