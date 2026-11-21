@@ -35,8 +35,10 @@ jobs:
 
       - name: Install Android SDK platform
         run: |
-          yes | sdkmanager --licenses
-          sdkmanager --install "platforms;android-35" "build-tools;35.0.0"
+          sdkmanager_path="$(find "$ANDROID_HOME/cmdline-tools" -type f -name sdkmanager -print -quit)"
+          test -n "$sdkmanager_path"
+          yes | "$sdkmanager_path" --licenses
+          "$sdkmanager_path" --install "platforms;android-35" "build-tools;35.0.0"
 
       - name: Set up Gradle 8.10
         uses: gradle/actions/setup-gradle@v6
